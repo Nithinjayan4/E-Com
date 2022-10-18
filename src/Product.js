@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Products = () => {
+const Product = () => {
   return <Wrapper></Wrapper>;
 };
 
@@ -17,4 +17,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default Products;
+export default Product;
