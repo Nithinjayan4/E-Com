@@ -10,6 +10,7 @@ import SingleProduct from "./SingleProduct";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 const App = () => {
 
@@ -54,6 +55,7 @@ const theme ={
       <Route path="*" element={<Error/>} />
 
     </Routes>
+    <Footer/>
   </Router>
   </ThemeProvider>
   )
