@@ -3,7 +3,7 @@ import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import About from "./About";
 import Cart from "./Cart";
 import Contact from "./Contact";
-import Error from "./Error";
+import ErrorPage from "./ErrorPage";
 import Home from "./Home";
 import Product from "./Product";
 import SingleProduct from "./SingleProduct";
@@ -52,7 +52,7 @@ const theme ={
       <Route path="/contact" element={<Contact/>} />
       <Route path="/singleproduct/:id" element={<SingleProduct/>} />
       <Route path="/cart" element={<Cart/>} />
-      <Route path="*" element={<Error/>} />
+      <Route path="*" element={<ErrorPage/>} />
 
     </Routes>
     <Footer/>
