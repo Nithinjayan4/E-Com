@@ -11,9 +11,10 @@ const data={
 }
 
   return <> <HeroSection myData={data}/>
+  <FeatureProduct/>
   <Services/>
   <Trusted/>
-  <FeatureProduct/>
+  
   </>
 };
 
