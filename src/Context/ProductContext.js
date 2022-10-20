@@ -15,7 +15,7 @@ const initialState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+ 
   const getProducts = async (url) => {
     dispatch({ type: "SET_LOADING" });
     try {

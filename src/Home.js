@@ -1,4 +1,5 @@
 import React from "react";
+import FeatureProduct from "./Components/FeatureProduct";
 // import styled from "styled-components";
 import HeroSection from "./Components/HeroSection";
 import Services from "./Components/Services";
@@ -12,6 +13,7 @@ const data={
   return <> <HeroSection myData={data}/>
   <Services/>
   <Trusted/>
+  <FeatureProduct/>
   </>
 };
 
