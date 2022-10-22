@@ -5,12 +5,13 @@ import Cart from "./Cart";
 import Contact from "./Contact";
 import ErrorPage from "./ErrorPage";
 import Home from "./Home";
-import Product from "./Product";
+import Product from "./Products";
 import SingleProduct from "./SingleProduct";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import Products from "./Products";
 
 const App = () => {
 
@@ -48,7 +49,7 @@ const theme ={
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/about" element={<About/>} />
-      <Route path="/products" element={<Product/>} />
+      <Route path="/products" element={<Products/>} />
       <Route path="/contact" element={<Contact/>} />
       <Route path="/singleproduct/:id" element={<SingleProduct/>} />
       <Route path="/cart" element={<Cart/>} />
