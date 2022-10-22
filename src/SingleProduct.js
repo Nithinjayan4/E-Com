@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useProductContext } from "./Context/ProductContext";
@@ -9,26 +9,30 @@ import FormatPrice from "./Helper/FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Star from "./Components/Star";
+import AddToCart from "./Components/AddToCart";
 
 
-const API = `https://api.pujakaitem.com/api/products`;
+
+const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
-  const { getSingleProduct,isSingleLoading, singleProduct } = useProductContext();
-   console.log(singleProduct);
-   const { id } = useParams();
-   const {id : productId,
+  const { getSingleProduct, isSingleLoading, singleProduct } =
+    useProductContext();
+
+  const { id } = useParams();
+
+  const {
+    id: alias,
     name,
     company,
     price,
     description,
     category,
     stock,
+    stars,
     reviews,
     image,
-    stars} = singleProduct
- 
- 
+  } = singleProduct;
 
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
@@ -40,7 +44,7 @@ const SingleProduct = () => {
 
   return (
     <Wrapper>
-     <PageNavigation title={name} />
+      <PageNavigation title={name} />
       <Container className="container">
         <div className="grid grid-two-column">
           {/* product Images  */}
@@ -52,6 +56,7 @@ const SingleProduct = () => {
           <div className="product-data">
             <h2>{name}</h2>
             <Star stars={stars} reviews={reviews} />
+
             <p className="product-data-price">
               MRP:
               <del>
@@ -96,9 +101,11 @@ const SingleProduct = () => {
                 Brand :<span> {company} </span>
               </p>
             </div>
+            <hr />
+            {stock > 0 && <AddToCart product={singleProduct} />}
           </div>
         </div>
-      </Container>  
+      </Container>
     </Wrapper>
   );
 };
@@ -106,6 +113,10 @@ const SingleProduct = () => {
 const Wrapper = styled.section`
   .container {
     padding: 9rem 0;
+  }
+  .product_images {
+    display: flex;
+    align-items: center;
   }
   .product-data {
     display: flex;
@@ -159,6 +170,12 @@ const Wrapper = styled.section`
     }
   }
   .product-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .page_loading {
+    font-size: 3.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
