@@ -1,7 +1,6 @@
 const filterReducer = (state, action) => {
     switch (action.type) {
       case "FILTER_PRODUCTS_REQUEST":
-        console.log("In load", action.payload);
         return {
           ...state,
           filteredProducts: [...action.payload],
@@ -23,9 +22,9 @@ const filterReducer = (state, action) => {
           sortCriteria: action.payload,
         };
       case "SORT_PRODUCTS":
-        let tempProducts = [...action.payload];
+        const {filteredProducts, sortCriteria} = state
+        let tempProducts = [...filteredProducts];
         let sortedProducts;
-        const { sortCriteria } = state;
         const sortProducts = (a, b) => {
           if (sortCriteria === "lowToHigh") return a.price - b.price;
           if (sortCriteria === "highToLow") return b.price - a.price;
@@ -40,6 +39,29 @@ const filterReducer = (state, action) => {
           filteredProducts: sortedProducts,
         };
   
+      case "SET_FILTER_VALUE" : 
+      const {name,value} = action.payload;
+      return {
+        ...state,
+        filters : {
+          ...state.filters,
+          [name] : value
+        }
+      }
+      
+      case "FILTER_PRODUCTS" :
+        const {allProducts, filters : {searchText}} = state
+        let tempFilteredProducts = [...allProducts]
+        
+        if(searchText){
+          tempFilteredProducts = tempFilteredProducts.filter((product)=> product.name.toLowerCase().includes(searchText))
+        }
+  
+        return {
+          ...state,
+          filteredProducts : tempFilteredProducts
+        }
+        
       default:
         return state;
     }
