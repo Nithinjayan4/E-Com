@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import Contact from "./Contact";
 import ErrorPage from "./ErrorPage";
 import Home from "./Home";
-import Product from "./Products";
+//import Product from "./Products";
 import SingleProduct from "./SingleProduct";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
