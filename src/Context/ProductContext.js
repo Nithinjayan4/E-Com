@@ -3,6 +3,7 @@ import axios from "axios";
 import reducer from "../Reducer/ProductReducer";
 
 const AppContext = createContext();
+//https://api.pujakaitem.com/api/products
 
 const API = "https://api.pujakaitem.com/api/products";
 
