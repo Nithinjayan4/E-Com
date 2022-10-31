@@ -11,7 +11,10 @@ const initialState = {
   gridView: true,
   sortCriteria: "lowToHigh",
   filters : {
-    searchText : ""
+    text: "",
+    category: "all",
+    company: "all",
+    color: "all",
   }
 };
 
