@@ -12,7 +12,8 @@ const initialState = {
   sortCriteria: "lowToHigh",
   filters : {
     searchText : "",
-    category : ""
+    category : "",
+    color:""
   }
 };
 

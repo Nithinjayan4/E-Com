@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useFilterContext } from '../Context/FilterContext'
 
 const FilterSection = () => {
-  const {filters : {searchText} , allProducts, updateFilterValue} = useFilterContext()
+  const {filters : {searchText} , allProducts ,color,updateFilterValue} = useFilterContext()
   //unique data of each field
 const getUniqueData=(data,property)=>{
   let newVal =data.map((curElem)=>{
@@ -12,7 +12,7 @@ const getUniqueData=(data,property)=>{
 
   });
 
-  if (property === "colors") {
+  if (property === "color") {
     
     newVal = newVal.flat();
   }
@@ -78,10 +78,12 @@ const getUniqueData=(data,property)=>{
 
       <div className="filter-colors colors">
         <h3>Colors</h3>
+        
 
         <div className="filter-color-style">
           {colorOnlyData.map((curColor, index) => {
             return (
+              
               <button
                 key={index}
                 type="button"
@@ -90,12 +92,17 @@ const getUniqueData=(data,property)=>{
                 style={{ backgroundColor: curColor }}
                 className="btnStyle"
                 onClick={updateFilterValue}>
-                {/* {color === curColor ? "" : null} */}
+                  
+                 {color === curColor ? "" : null} 
+                
               </button>
+              
             );
           })}
+           
         </div>
       </div>
+    
 
     </Wrapper>
   )
