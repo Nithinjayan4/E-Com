@@ -14,7 +14,7 @@ const initialState = {
     text: "",
     category: "all",
     company: "all",
-    color: "all",
+    
   }
 };
 
