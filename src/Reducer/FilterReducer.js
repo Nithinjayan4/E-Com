@@ -70,6 +70,7 @@ const filterReducer = (state, action) => {
       //     (curElem) => curElem.company.toLowerCase() === company.toLowerCase()
       //   );
       // }
+      //
       return {
         ...state,
         filteredProducts : tempFilteredProducts
