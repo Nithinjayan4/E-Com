@@ -11,6 +11,12 @@ const getUniqueData=(data,property)=>{
     return curElem[property];
 
   });
+
+  if (property === "colors") {
+    
+    newVal = newVal.flat();
+  }
+
   
   return(newVal = ["All",...new Set(newVal)]);
   
@@ -20,6 +26,7 @@ const getUniqueData=(data,property)=>{
 
   const categoryOnlyData = getUniqueData(allProducts,"category");
   const companyOnlyData = getUniqueData(allProducts,"company");
+  const colorOnlyData = getUniqueData(allProducts,"color");
   return (
     <Wrapper>
       <div>
@@ -67,6 +74,27 @@ const getUniqueData=(data,property)=>{
             })}
           </select>
         </form>
+      </div>
+
+      <div className="filter-colors colors">
+        <h3>Colors</h3>
+
+        <div className="filter-color-style">
+          {colorOnlyData.map((curColor, index) => {
+            return (
+              <button
+                key={index}
+                type="button"
+                value={curColor}
+                name="color"
+                style={{ backgroundColor: curColor }}
+                className="btnStyle"
+                onClick={updateFilterValue}>
+                {/* {color === curColor ? "" : null} */}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
     </Wrapper>
