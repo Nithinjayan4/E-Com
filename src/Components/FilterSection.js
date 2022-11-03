@@ -19,6 +19,7 @@ const getUniqueData=(data,property)=>{
   
 
   const categoryOnlyData = getUniqueData(allProducts,"category");
+  const companyOnlyData = getUniqueData(allProducts,"company");
   return (
     <Wrapper>
       <div>
@@ -29,17 +30,17 @@ const getUniqueData=(data,property)=>{
       <div className="filter-category">
         <h3>Category</h3>
         <div>
-          {categoryOnlyData.map((curElem, index) => {
+          {categoryOnlyData.map((category, index) => {
             // console.log(categoryOnlyData)
             return (
               <button
                 key={index}
                 type="button"
                 name="category"
-                value={curElem}
+                value={category}
                 //className={curElem === category ? "active" : ""}
                 onClick={updateFilterValue}>
-                {curElem}
+                {category}
                 
               </button>
              
@@ -47,6 +48,27 @@ const getUniqueData=(data,property)=>{
           })}
         </div>
       </div>
+
+      <div className="filter-company">
+        <h3>Company</h3>
+
+        <form action="#">
+          <select
+            name="company"
+            id="company"
+            className="filter-company--select"
+            onClick={updateFilterValue}>
+            {companyOnlyData.map((curElem, index) => {
+              return (
+                <option key={index} value={curElem} name="company">
+                  {curElem}
+                </option>
+              );
+            })}
+          </select>
+        </form>
+      </div>
+
     </Wrapper>
   )
 }
